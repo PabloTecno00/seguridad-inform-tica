@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-nexus-bg: #05080a;
+  --color-nexus-surface: #0a0f14;
+  --color-nexus-accent: #00f2ff;
+  --color-nexus-accent-dim: rgba(0, 242, 255, 0.1);
+  --color-nexus-danger: #ff2d55;
+  --color-nexus-success: #00ff9d;
+  --color-nexus-warning: #ffcc00;
+  --color-nexus-border: #1a2633;
+}
+
+@layer base {
+  body {
+    @apply bg-nexus-bg text-slate-200 font-sans antialiased overflow-x-hidden;
+  }
+  
+  /* Scanline effect */
+  body::after {
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+    z-index: 9999;
+    background-size: 100% 4px, 3px 100%;
+    pointer-events: none;
+  }
+}
+
+.terminal-text {
+  @apply font-mono;
+}
+
+.glass-panel {
+  @apply bg-nexus-surface/80 backdrop-blur-md border border-nexus-border rounded-lg shadow-2xl;
+}
+
+.nexus-button {
+  @apply px-6 py-3 font-mono text-sm uppercase tracking-widest transition-all duration-300 border border-nexus-accent/30 hover:border-nexus-accent hover:bg-nexus-accent/10 hover:shadow-[0_0_15px_rgba(0,242,255,0.3)] disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.nexus-input {
+  @apply bg-nexus-bg border border-nexus-border px-4 py-3 font-mono text-nexus-accent focus:outline-none focus:border-nexus-accent transition-colors w-full;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-nexus-bg;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-nexus-border hover:bg-nexus-accent/50 transition-colors;
+}
