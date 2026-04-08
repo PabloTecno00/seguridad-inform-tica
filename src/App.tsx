@@ -157,7 +157,7 @@ Estado: ${unlockedFragments.length === CHALLENGES.length ? 'VERIFICADO' : 'INCOM
   return (
     <div className="min-h-screen flex flex-col relative">
       {/* Background Grid */}
-      <div className="fixed inset-0 pointer-events-none opacity-20 bg-[linear-gradient(to_right,#1a2633_1px,transparent_1px),linear-gradient(to_bottom,#1a2633_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
+      <div className="fixed inset-0 pointer-events-none opacity-20 bg-[linear-gradient(to_right,#374a5e_1px,transparent_1px),linear-gradient(to_bottom,#374a5e_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
 
       {/* Header (Sticky) */}
       {screen !== 'intro' && (
@@ -168,7 +168,7 @@ Estado: ${unlockedFragments.length === CHALLENGES.length ? 'VERIFICADO' : 'INCOM
               <span>NEXUS_SYSTEM</span>
             </div>
             <div className="h-4 w-[1px] bg-nexus-border"></div>
-            <div className="text-xs font-mono text-slate-400 uppercase tracking-widest hidden sm:block">
+            <div className="text-xs font-mono text-slate-300 uppercase tracking-widest hidden sm:block">
               Analista: <span className="text-nexus-accent">{userName}</span>
             </div>
           </div>
@@ -223,7 +223,7 @@ Estado: ${unlockedFragments.length === CHALLENGES.length ? 'VERIFICADO' : 'INCOM
                 <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tighter mb-2 text-white">
                   NEXUS <span className="text-nexus-accent">CORP.</span>
                 </h1>
-                <p className="text-slate-400 font-mono text-sm uppercase tracking-[0.3em]">
+                <p className="text-slate-300 font-mono text-sm uppercase tracking-[0.3em]">
                   División de Inteligencia Digital
                 </p>
               </div>
@@ -241,25 +241,25 @@ Estado: ${unlockedFragments.length === CHALLENGES.length ? 'VERIFICADO' : 'INCOM
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="flex items-start gap-3 p-3 rounded bg-white/5 border border-white/10">
                     <Lock className="text-nexus-accent shrink-0" size={18} />
-                    <span className="text-xs text-slate-400">Protege dispositivos y contraseñas.</span>
+                    <span className="text-xs text-slate-300">Protege dispositivos y contraseñas.</span>
                   </div>
                   <div className="flex items-start gap-3 p-3 rounded bg-white/5 border border-white/10">
                     <UserCheck className="text-nexus-accent shrink-0" size={18} />
-                    <span className="text-xs text-slate-400">Gestiona tu identidad y reputación.</span>
+                    <span className="text-xs text-slate-300">Gestiona tu identidad y reputación.</span>
                   </div>
                   <div className="flex items-start gap-3 p-3 rounded bg-white/5 border border-white/10">
                     <EyeOff className="text-nexus-accent shrink-0" size={18} />
-                    <span className="text-xs text-slate-400">Configura la privacidad total.</span>
+                    <span className="text-xs text-slate-300">Configura la privacidad total.</span>
                   </div>
                   <div className="flex items-start gap-3 p-3 rounded bg-white/5 border border-white/10">
                     <HeartPulse className="text-nexus-accent shrink-0" size={18} />
-                    <span className="text-xs text-slate-400">Mantén el bienestar digital.</span>
+                    <span className="text-xs text-slate-300">Mantén el bienestar digital.</span>
                   </div>
                 </div>
               </div>
 
               <div className="space-y-4">
-                <label className="block text-xs font-mono text-slate-500 uppercase tracking-widest">
+                <label className="block text-xs font-mono text-slate-400 uppercase tracking-widest">
                   Identificación del Analista
                 </label>
                 <input 
@@ -291,7 +291,7 @@ Estado: ${unlockedFragments.length === CHALLENGES.length ? 'VERIFICADO' : 'INCOM
               {/* Sidebar Info */}
               <div className="lg:col-span-4 space-y-6">
                 <div className="glass-panel p-6">
-                  <h2 className="text-xs font-mono text-slate-500 uppercase tracking-widest mb-4">Misión Actual</h2>
+                  <h2 className="text-xs font-mono text-slate-400 uppercase tracking-widest mb-4">Misión Actual</h2>
                   <div className="flex items-center gap-3 mb-2">
                     <div className="p-2 rounded bg-nexus-accent/10 text-nexus-accent">
                       {currentChallengeIdx % 6 === 0 && <Shield size={24} />}
@@ -306,13 +306,13 @@ Estado: ${unlockedFragments.length === CHALLENGES.length ? 'VERIFICADO' : 'INCOM
                       <p className="text-xs text-nexus-accent font-mono">{currentChallenge.topic}</p>
                     </div>
                   </div>
-                  <p className="text-sm text-slate-400 leading-relaxed mt-4">
+                  <p className="text-sm text-slate-300 leading-relaxed mt-4">
                     {currentChallenge.description}
                   </p>
                 </div>
 
                 <div className="glass-panel p-6">
-                  <h2 className="text-xs font-mono text-slate-500 uppercase tracking-widest mb-4">Código de Acceso</h2>
+                  <h2 className="text-xs font-mono text-slate-400 uppercase tracking-widest mb-4">Código de Acceso</h2>
                   <div className="grid grid-cols-8 sm:grid-cols-10 gap-1 sm:gap-2">
                     {CHALLENGES.map((c, i) => (
                       <div 
@@ -320,7 +320,7 @@ Estado: ${unlockedFragments.length === CHALLENGES.length ? 'VERIFICADO' : 'INCOM
                         className={`aspect-square flex items-center justify-center font-mono text-[8px] border ${
                           unlockedFragments.includes(c.codeFragment) 
                             ? 'border-nexus-accent text-nexus-accent bg-nexus-accent/10 shadow-[0_0_10px_rgba(0,242,255,0.2)]' 
-                            : 'border-nexus-border text-slate-700'
+                            : 'border-nexus-border text-slate-500'
                         }`}
                       >
                         {unlockedFragments.includes(c.codeFragment) ? c.codeFragment : '?'}
@@ -337,7 +337,7 @@ Estado: ${unlockedFragments.length === CHALLENGES.length ? 'VERIFICADO' : 'INCOM
                     <span className="text-xs font-mono text-nexus-accent bg-nexus-accent/10 px-2 py-1 rounded">
                       TAREA {currentTaskIdx + 1} / {currentChallenge.tasks.length}
                     </span>
-                    <div className="flex items-center gap-2 text-xs font-mono text-slate-500">
+                    <div className="flex items-center gap-2 text-xs font-mono text-slate-400">
                       <Zap size={14} className="text-nexus-warning" />
                       <span>Dificultad: Media</span>
                     </div>
@@ -424,7 +424,7 @@ Estado: ${unlockedFragments.length === CHALLENGES.length ? 'VERIFICADO' : 'INCOM
                                 className={`aspect-square rounded-full border-2 flex items-center justify-center font-mono text-lg transition-all ${
                                   patternInput.includes(num.toString()) 
                                     ? 'border-nexus-accent bg-nexus-accent/20 text-nexus-accent' 
-                                    : 'border-nexus-border text-slate-600 hover:border-nexus-accent/50'
+                                    : 'border-nexus-border text-slate-400 hover:border-nexus-accent/50'
                                 }`}
                               >
                                 {num}
@@ -438,7 +438,7 @@ Estado: ${unlockedFragments.length === CHALLENGES.length ? 'VERIFICADO' : 'INCOM
                             <button 
                               onClick={() => setPatternInput('')}
                               disabled={!!feedback}
-                              className="flex-1 px-4 py-2 border border-nexus-border text-xs font-mono text-slate-500 hover:text-white"
+                              className="flex-1 px-4 py-2 border border-nexus-border text-xs font-mono text-slate-400 hover:text-white"
                             >
                               REINICIAR
                             </button>
@@ -475,7 +475,7 @@ Estado: ${unlockedFragments.length === CHALLENGES.length ? 'VERIFICADO' : 'INCOM
                         </div>
                       ) : currentTask.type === 'toggle-grid' ? (
                         <div className="space-y-6">
-                          <p className="text-xs font-mono text-slate-500 text-center uppercase tracking-widest">
+                          <p className="text-xs font-mono text-slate-400 text-center uppercase tracking-widest">
                             Configuración de Puertos / Firewall
                           </p>
                           <div className="grid grid-cols-4 gap-4 max-w-[300px] mx-auto">
@@ -491,7 +491,7 @@ Estado: ${unlockedFragments.length === CHALLENGES.length ? 'VERIFICADO' : 'INCOM
                                 className={`aspect-square rounded border-2 flex flex-col items-center justify-center transition-all ${
                                   state 
                                     ? 'border-nexus-success bg-nexus-success/20 text-nexus-success' 
-                                    : 'border-nexus-border text-slate-600'
+                                    : 'border-nexus-border text-slate-400'
                                 }`}
                               >
                                 <span className="text-[10px] font-mono mb-1">P{idx + 1}</span>
@@ -510,9 +510,9 @@ Estado: ${unlockedFragments.length === CHALLENGES.length ? 'VERIFICADO' : 'INCOM
                       ) : currentTask.type === 'slider' ? (
                         <div className="space-y-8 py-4">
                           <div className="flex justify-between items-end mb-2">
-                            <span className="text-xs font-mono text-slate-500">{currentTask.data?.minLabel || 'MIN'}</span>
+                            <span className="text-xs font-mono text-slate-400">{currentTask.data?.minLabel || 'MIN'}</span>
                             <span className="text-4xl font-bold text-nexus-accent font-mono">{sliderValue}%</span>
-                            <span className="text-xs font-mono text-slate-500">{currentTask.data?.maxLabel || 'MAX'}</span>
+                            <span className="text-xs font-mono text-slate-400">{currentTask.data?.maxLabel || 'MAX'}</span>
                           </div>
                           <input 
                             type="range"
@@ -605,7 +605,7 @@ Estado: ${unlockedFragments.length === CHALLENGES.length ? 'VERIFICADO' : 'INCOM
                   <CheckCircle2 size={64} />
                 </div>
                 <h1 className="text-4xl font-bold text-white mb-2">MISIÓN COMPLETADA</h1>
-                <p className="text-slate-400 font-mono text-sm uppercase tracking-widest">
+                <p className="text-slate-300 font-mono text-sm uppercase tracking-widest">
                   Protocolo de Acceso Finalizado
                 </p>
               </div>
@@ -613,19 +613,19 @@ Estado: ${unlockedFragments.length === CHALLENGES.length ? 'VERIFICADO' : 'INCOM
               <div className="grid grid-cols-2 gap-4 mb-10">
                 <div className="bg-nexus-bg p-4 border border-nexus-border rounded">
                   <div className="text-2xl font-bold text-nexus-accent">{score}</div>
-                  <div className="text-[10px] font-mono text-slate-500 uppercase">Aciertos</div>
+                  <div className="text-[10px] font-mono text-slate-400 uppercase">Aciertos</div>
                 </div>
                 <div className="bg-nexus-bg p-4 border border-nexus-border rounded">
                   <div className="text-2xl font-bold text-nexus-danger">{errors}</div>
-                  <div className="text-[10px] font-mono text-slate-500 uppercase">Errores</div>
+                  <div className="text-[10px] font-mono text-slate-400 uppercase">Errores</div>
                 </div>
                 <div className="bg-nexus-bg p-4 border border-nexus-border rounded">
                   <div className="text-2xl font-bold text-nexus-warning">{formatTime(120 * 60 - timeLeft)}</div>
-                  <div className="text-[10px] font-mono text-slate-500 uppercase">Tiempo</div>
+                  <div className="text-[10px] font-mono text-slate-400 uppercase">Tiempo</div>
                 </div>
                 <div className="bg-nexus-bg p-4 border border-nexus-border rounded">
                   <div className="text-2xl font-bold text-nexus-success">{unlockedFragments.join('') || '---'}</div>
-                  <div className="text-[10px] font-mono text-slate-500 uppercase">Código</div>
+                  <div className="text-[10px] font-mono text-slate-400 uppercase">Código</div>
                 </div>
               </div>
 
@@ -636,7 +636,7 @@ Estado: ${unlockedFragments.length === CHALLENGES.length ? 'VERIFICADO' : 'INCOM
                 >
                   <Copy size={18} /> Copiar Informe para el Profesor
                 </button>
-                <p className="text-xs text-slate-500">
+                <p className="text-xs text-slate-400">
                   Copia el informe y pégalo en el documento de entrega de la asignatura.
                 </p>
               </div>
@@ -646,7 +646,7 @@ Estado: ${unlockedFragments.length === CHALLENGES.length ? 'VERIFICADO' : 'INCOM
       </main>
 
       {/* Footer Decoration */}
-      <footer className="p-4 text-center text-[10px] font-mono text-slate-600 uppercase tracking-[0.5em] pointer-events-none">
+      <footer className="p-4 text-center text-[10px] font-mono text-slate-400 uppercase tracking-[0.5em] pointer-events-none">
         Nexus Security Intelligence Division &copy; 2026 // Secure Connection Established
       </footer>
 
@@ -671,7 +671,7 @@ Estado: ${unlockedFragments.length === CHALLENGES.length ? 'VERIFICADO' : 'INCOM
                 </div>
                 <button 
                   onClick={() => setShowDossier(false)}
-                  className="text-slate-500 hover:text-white transition-colors"
+                  className="text-slate-400 hover:text-white transition-colors"
                 >
                   <XCircle size={24} />
                 </button>
