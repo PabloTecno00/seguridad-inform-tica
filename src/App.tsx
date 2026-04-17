@@ -21,7 +21,8 @@ import {
   Info,
   ArrowRight,
   Zap,
-  Download
+  Download,
+  Cpu
 } from 'lucide-react';
 import { jsPDF } from 'jspdf';
 import autoTable from 'jspdf-autotable';
@@ -307,8 +308,13 @@ Estado: ${isFinished || screen === 'end' ? 'VERIFICADO' : 'INCOMPLETO'}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95 }}
-              className="max-w-2xl w-full glass-panel p-8 sm:p-12"
+              className="max-w-2xl w-full glass-panel p-8 sm:p-12 relative overflow-hidden"
             >
+              {/* Change verification symbol */}
+              <div className="absolute top-4 right-4 text-nexus-accent/20 animate-pulse">
+                <Cpu size={16} />
+              </div>
+
               <div className="text-center mb-10">
                 <motion.div 
                   initial={{ scale: 0.8 }}
