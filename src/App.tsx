@@ -20,11 +20,15 @@ import {
   Copy,
   Info,
   ArrowRight,
-  Zap
+  Zap,
+  Download
 } from 'lucide-react';
+import { jsPDF } from 'jspdf';
+import autoTable from 'jspdf-autotable';
 import { CHALLENGES, Challenge, Task, THEORY_DOSSIER, TheorySection } from './constants';
+import { CyberBreak } from './components/CyberBreak';
 
-type Screen = 'intro' | 'game' | 'end' | 'bonus';
+type Screen = 'intro' | 'game' | 'end' | 'bonus' | 'minigame';
 
 export default function App() {
   const [screen, setScreen] = useState<Screen>('intro');
@@ -45,6 +49,13 @@ export default function App() {
   const [textInput, setTextInput] = useState('');
   const [toggles, setToggles] = useState<boolean[]>([]);
   const [sliderValue, setSliderValue] = useState(50);
+  const [taskHistory, setTaskHistory] = useState<{
+    challengeTitle: string;
+    question: string;
+    isCorrect: boolean;
+    userAnswer: string;
+    correctAnswer: string;
+  }[]>([]);
 
   // Timer logic
   useEffect(() => {
@@ -93,7 +104,8 @@ export default function App() {
     }
     setPatternInput('');
     setTextInput('');
-    setToggles(new Array(currentTask.data?.toggleCount || 0).fill(false));
+    const toggleCount = currentTask.data?.toggleCount || currentTask.data?.labels?.length || (Array.isArray(currentTask.correctAnswer) && typeof currentTask.correctAnswer[0] === 'boolean' ? currentTask.correctAnswer.length : 0);
+    setToggles(new Array(toggleCount).fill(false));
     setSliderValue(currentTask.data?.initialSlider || 50);
   }, [currentChallengeIdx, currentTaskIdx, currentTask.type, currentTask.options, currentTask.correctAnswer, currentTask.data]);
 
@@ -104,6 +116,32 @@ export default function App() {
     let processedCorrect = currentTask.correctAnswer;
 
     const isCorrect = JSON.stringify(processedAnswer) === JSON.stringify(processedCorrect);
+
+    // Record in history
+    let displayUserAnswer = "";
+    let displayCorrectAnswer = "";
+
+    if (currentTask.type === 'multiple-choice' || currentTask.type === 'scenario' || currentTask.type === 'spot-the-error') {
+      displayUserAnswer = currentTask.options?.[processedAnswer] || String(processedAnswer);
+      displayCorrectAnswer = currentTask.options?.[processedCorrect] || String(processedCorrect);
+    } else if (currentTask.type === 'sorting') {
+      displayUserAnswer = processedAnswer.map((idx: number) => currentTask.options?.[idx]).join(' -> ');
+      displayCorrectAnswer = processedCorrect.map((idx: number) => currentTask.options?.[idx]).join(' -> ');
+    } else if (currentTask.type === 'toggle-grid') {
+      displayUserAnswer = processedAnswer.map((s: boolean, i: number) => `${currentTask.data?.labels?.[i] || 'P'+(i+1)}:${s?'ON':'OFF'}`).join(', ');
+      displayCorrectAnswer = processedCorrect.map((s: boolean, i: number) => `${currentTask.data?.labels?.[i] || 'P'+(i+1)}:${s?'ON':'OFF'}`).join(', ');
+    } else {
+      displayUserAnswer = String(processedAnswer);
+      displayCorrectAnswer = String(processedCorrect);
+    }
+
+    setTaskHistory(prev => [...prev, {
+      challengeTitle: currentChallenge.title,
+      question: currentTask.question,
+      isCorrect,
+      userAnswer: displayUserAnswer,
+      correctAnswer: displayCorrectAnswer
+    }]);
 
     if (isCorrect) {
       setFeedback({ type: 'success', message: currentTask.explanation });
@@ -122,23 +160,26 @@ export default function App() {
       setCurrentTaskIdx(prev => prev + 1);
     } else {
       // Challenge completed
-      if (!unlockedFragments.includes(currentChallenge.codeFragment)) {
-        setUnlockedFragments(prev => [...prev, currentChallenge.codeFragment]);
-      }
-      
-      if (currentChallengeIdx < CHALLENGES.length - 1) {
-        setCurrentChallengeIdx(prev => prev + 1);
-        setCurrentTaskIdx(0);
-      } else {
-        // All challenges completed
-        setIsTimerActive(false);
-        setScreen('end');
-      }
+      setUnlockedFragments(prev => [...prev, currentChallenge.codeFragment]);
+      setScreen('minigame');
+    }
+  };
+
+  const finishMinigame = () => {
+    if (currentChallengeIdx < CHALLENGES.length - 1) {
+      setCurrentChallengeIdx(prev => prev + 1);
+      setCurrentTaskIdx(0);
+      setScreen('game');
+    } else {
+      // All challenges completed
+      setIsTimerActive(false);
+      setScreen('end');
     }
   };
 
   const copyResults = () => {
     const timeSpent = startTime ? formatTime(Math.floor((Date.now() - startTime) / 1000)) : 'N/A';
+    const isFinished = unlockedFragments.length >= CHALLENGES.length;
     const report = `
 === INFORME DE EVALUACIÓN NEXUS ===
 Analista: ${userName}
@@ -146,12 +187,69 @@ Resultado: ${score}/${CHALLENGES.reduce((acc, c) => acc + c.tasks.length, 0)} ac
 Errores: ${errors}
 Tiempo empleado: ${timeSpent}
 Código de acceso: ${unlockedFragments.join('')}
-Estado: ${unlockedFragments.length === CHALLENGES.length ? 'VERIFICADO' : 'INCOMPLETO'}
+Estado: ${isFinished || screen === 'end' ? 'VERIFICADO' : 'INCOMPLETO'}
 ===================================
     `.trim();
     
     navigator.clipboard.writeText(report);
     alert('Resultados copiados al portapapeles.');
+  };
+
+  const downloadPDF = () => {
+    const doc = new jsPDF();
+    const timeSpent = startTime ? formatTime(Math.floor((Date.now() - startTime) / 1000)) : 'N/A';
+    const totalTasks = CHALLENGES.reduce((acc, c) => acc + c.tasks.length, 0);
+
+    // Header
+    doc.setFontSize(22);
+    doc.setTextColor(0, 242, 255); // Nexus Accent
+    doc.text('INFORME DE EVALUACIÓN NEXUS CORP.', 105, 20, { align: 'center' });
+
+    doc.setFontSize(12);
+    doc.setTextColor(100);
+    doc.text(`Analista: ${userName}`, 20, 40);
+    doc.text(`Fecha: ${new Date().toLocaleString()}`, 20, 47);
+    doc.text(`Resultado: ${score} / ${totalTasks} (${Math.round((score/totalTasks)*100)}%)`, 20, 54);
+    doc.text(`Errores: ${errors}`, 20, 61);
+    doc.text(`Tiempo empleado: ${timeSpent}`, 20, 68);
+    doc.text(`Código de acceso: ${unlockedFragments.join('') || 'N/A'}`, 20, 75);
+    
+    const isFinished = unlockedFragments.length >= CHALLENGES.length;
+    doc.setFontSize(14);
+    doc.setTextColor(isFinished ? 0 : 255, isFinished ? 255 : 45, isFinished ? 157 : 85); // Success or Danger
+    doc.text(`ESTADO: ${isFinished ? 'VERIFICADO' : 'INCOMPLETO'}`, 20, 85);
+
+    // Table of results
+    const tableData = taskHistory.map((item, index) => [
+      index + 1,
+      item.challengeTitle,
+      item.question,
+      item.isCorrect ? 'ACIERTO' : 'FALLO',
+      item.userAnswer,
+      item.correctAnswer
+    ]);
+
+    autoTable(doc, {
+      startY: 95,
+      head: [['#', 'Módulo', 'Pregunta', 'Estado', 'Tu Respuesta', 'Respuesta Correcta']],
+      body: tableData,
+      headStyles: { fillColor: [0, 242, 255], textColor: [0, 0, 0] },
+      alternateRowStyles: { fillColor: [240, 240, 240] },
+      columnStyles: {
+        3: { fontStyle: 'bold' }
+      },
+      didParseCell: (data) => {
+        if (data.section === 'body' && data.column.index === 3) {
+          if (data.cell.raw === 'ACIERTO') {
+            data.cell.styles.textColor = [0, 150, 0];
+          } else {
+            data.cell.styles.textColor = [200, 0, 0];
+          }
+        }
+      }
+    });
+
+    doc.save(`Informe_Nexus_${userName.replace(/\s+/g, '_')}.pdf`);
   };
 
   return (
@@ -494,7 +592,9 @@ Estado: ${unlockedFragments.length === CHALLENGES.length ? 'VERIFICADO' : 'INCOM
                                     : 'border-nexus-border text-slate-400'
                                 }`}
                               >
-                                <span className="text-[10px] font-mono mb-1">P{idx + 1}</span>
+                                <span className="text-[10px] font-mono mb-1 text-center px-1 truncate w-full">
+                                  {currentTask.data?.labels?.[idx] || `P${idx + 1}`}
+                                </span>
                                 <div className={`w-3 h-3 rounded-full ${state ? 'bg-nexus-success shadow-[0_0_8px_#00ff9d]' : 'bg-slate-800'}`}></div>
                               </button>
                             ))}
@@ -593,6 +693,14 @@ Estado: ${unlockedFragments.length === CHALLENGES.length ? 'VERIFICADO' : 'INCOM
             </motion.div>
           )}
 
+          {screen === 'minigame' && (
+            <CyberBreak 
+              moduleTitle={CHALLENGES[currentChallengeIdx].title}
+              moduleIndex={currentChallengeIdx}
+              onComplete={finishMinigame}
+            />
+          )}
+
           {screen === 'end' && (
             <motion.div 
               key="end"
@@ -610,7 +718,7 @@ Estado: ${unlockedFragments.length === CHALLENGES.length ? 'VERIFICADO' : 'INCOM
                 </p>
               </div>
 
-              <div className="grid grid-cols-2 gap-4 mb-10">
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
                 <div className="bg-nexus-bg p-4 border border-nexus-border rounded">
                   <div className="text-2xl font-bold text-nexus-accent">{score}</div>
                   <div className="text-[10px] font-mono text-slate-400 uppercase">Aciertos</div>
@@ -623,13 +731,60 @@ Estado: ${unlockedFragments.length === CHALLENGES.length ? 'VERIFICADO' : 'INCOM
                   <div className="text-2xl font-bold text-nexus-warning">{formatTime(120 * 60 - timeLeft)}</div>
                   <div className="text-[10px] font-mono text-slate-400 uppercase">Tiempo</div>
                 </div>
-                <div className="bg-nexus-bg p-4 border border-nexus-border rounded">
-                  <div className="text-2xl font-bold text-nexus-success">{unlockedFragments.join('') || '---'}</div>
-                  <div className="text-[10px] font-mono text-slate-400 uppercase">Código</div>
+                <div className="bg-nexus-bg p-4 border border-nexus-border rounded flex flex-col items-center justify-center min-h-[100px]">
+                  <div className={`font-bold text-nexus-success break-all leading-tight mb-1 ${unlockedFragments.join('').length > 15 ? 'text-sm' : 'text-2xl'}`}>
+                    {unlockedFragments.join('') || '---'}
+                  </div>
+                  <div className="text-[10px] font-mono text-slate-400 uppercase mt-auto">Código</div>
+                </div>
+              </div>
+
+              <div className="mb-8 text-left">
+                <h2 className="text-nexus-accent font-mono text-sm mb-4 border-b border-nexus-accent/20 pb-1">DESGLOSE DE ACTIVIDAD</h2>
+                <div className="max-h-[300px] overflow-y-auto pr-2 custom-scrollbar">
+                  <div className="space-y-3">
+                    {taskHistory.map((item, idx) => (
+                      <div key={idx} className="bg-nexus-surface/40 p-3 border border-nexus-border rounded flex items-start gap-4">
+                        <div className={`mt-1 flex-shrink-0 ${item.isCorrect ? 'text-nexus-success' : 'text-nexus-danger'}`}>
+                          {item.isCorrect ? <CheckCircle2 size={16} /> : <XCircle size={16} />}
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center justify-between mb-1">
+                            <span className="text-[10px] font-mono text-nexus-accent uppercase tracking-tighter">
+                              {item.challengeTitle}
+                            </span>
+                          </div>
+                          <p className="text-xs text-slate-300 font-medium mb-1">{item.question}</p>
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">
+                            <div className="bg-black/20 p-2 rounded">
+                              <span className="text-[10px] text-slate-500 block uppercase mb-1">Tu Respuesta</span>
+                              <span className={`text-[11px] font-mono break-words ${item.isCorrect ? 'text-nexus-success' : 'text-nexus-danger'}`}>
+                                {item.userAnswer}
+                              </span>
+                            </div>
+                            {!item.isCorrect && (
+                              <div className="bg-black/20 p-2 rounded">
+                                <span className="text-[10px] text-slate-500 block uppercase mb-1">Correcta</span>
+                                <span className="text-[11px] font-mono break-words text-nexus-accent">
+                                  {item.correctAnswer}
+                                </span>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
 
               <div className="space-y-4">
+                <button 
+                  onClick={downloadPDF}
+                  className="nexus-button w-full flex items-center justify-center gap-2 bg-nexus-accent/20 border-nexus-accent text-white hover:bg-nexus-accent/30"
+                >
+                  <Download size={18} /> Descargar Informe PDF
+                </button>
                 <button 
                   onClick={copyResults}
                   className="nexus-button w-full flex items-center justify-center gap-2"
@@ -637,7 +792,7 @@ Estado: ${unlockedFragments.length === CHALLENGES.length ? 'VERIFICADO' : 'INCOM
                   <Copy size={18} /> Copiar Informe para el Profesor
                 </button>
                 <p className="text-xs text-slate-400">
-                  Copia el informe y pégalo en el documento de entrega de la asignatura.
+                  Descarga el PDF o copia el informe y pégalo en el documento de entrega de la asignatura.
                 </p>
               </div>
             </motion.div>

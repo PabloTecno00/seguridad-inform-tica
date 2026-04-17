@@ -304,12 +304,12 @@ export const CHALLENGES: Challenge[] = [
         type: 'multiple-choice',
         question: 'El sistema operativo del terminal indica "Versión 12.0.4 (Última actualización: hace 240 días)". ¿Cuál es el procedimiento estándar?',
         options: [
+          'Actualizar de inmediato: los parches de seguridad corrigen vulnerabilidades críticas.',
           'Ignorar si el antivirus está activo.',
           'Programar actualización para el fin de semana.',
-          'Actualizar de inmediato: los parches de seguridad corrigen vulnerabilidades críticas.',
           'Desinstalar el SO y reinstalarlo de cero.'
         ],
-        correctAnswer: 2,
+        correctAnswer: 0,
         explanation: 'Las actualizaciones de seguridad son críticas porque cierran "exploits" conocidos que los atacantes usan para entrar sin permiso.',
         hint: 'Busca la sección 5.1.1 del dossier.'
       },
@@ -334,10 +334,10 @@ export const CHALLENGES: Challenge[] = [
         options: [
           'Restaurar una copia de seguridad tras un virus.',
           'Cambiar el disco duro dañado.',
-          'Activar el cifrado de disco antes de usar el equipo.',
-          'Formatear el ordenador después de un ataque.'
+          'Formatear el ordenador después de un ataque.',
+          'Activar el cifrado de disco antes de usar el equipo.'
         ],
-        correctAnswer: 2,
+        correctAnswer: 3,
         explanation: 'Las medidas preventivas actúan antes del problema para evitarlo o mitigar su impacto.',
         hint: 'Revisa la tabla comparativa en la sección 5.1.'
       },
@@ -361,11 +361,11 @@ export const CHALLENGES: Challenge[] = [
         question: '¿Qué herramienta monitoriza el tráfico de red para bloquear accesos no autorizados?',
         options: [
           'Antivirus',
-          'Cortafuegos (Firewall)',
           'Desfragmentador',
+          'Cortafuegos (Firewall)',
           'Copia de seguridad'
         ],
-        correctAnswer: 1,
+        correctAnswer: 2,
         explanation: 'El cortafuegos actúa como una barrera entre redes, filtrando el tráfico según reglas de seguridad.',
         hint: 'Sección 5.1.2.'
       }
@@ -397,12 +397,12 @@ export const CHALLENGES: Challenge[] = [
         type: 'multiple-choice',
         question: '¿Cuál es la función principal de un Gestor de Contraseñas?',
         options: [
-          'Recordar una sola clave para todo.',
           'Generar y almacenar contraseñas robustas y únicas para cada servicio.',
+          'Recordar una sola clave para todo.',
           'Hackear cuentas olvidadas.',
           'Enviar tus claves a la nube sin cifrar.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 0,
         explanation: 'Un gestor permite tener cientos de claves complejas sin tener que memorizarlas.',
         hint: 'Busca "Gestores de Contraseñas" en 5.1.1.'
       },
@@ -430,11 +430,11 @@ export const CHALLENGES: Challenge[] = [
         question: 'Recibes un código 2FA en tu móvil que no has solicitado. ¿Qué significa?',
         options: [
           'Que el sistema está funcionando mal.',
-          'Que alguien conoce tu contraseña e intenta entrar en tu cuenta.',
           'Que has ganado un premio.',
-          'Que debes introducir el código para ver qué pasa.'
+          'Que debes introducir el código para ver qué pasa.',
+          'Que alguien conoce tu contraseña e intenta entrar en tu cuenta.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 3,
         explanation: 'Si recibes un código sin pedirlo, es señal de que tu contraseña ha sido comprometida.',
         hint: 'Piensa en la seguridad reactiva.'
       }
@@ -453,11 +453,11 @@ export const CHALLENGES: Challenge[] = [
         question: '¿Qué compone principalmente tu "Huella Digital"?',
         options: [
           'Solo las fotos de Instagram.',
-          'Toda la información que dejas al navegar: cookies, registros, comentarios, fotos...',
           'Tu huella dactilar escaneada.',
+          'Toda la información que dejas al navegar: cookies, registros, comentarios, fotos...',
           'El historial de búsqueda que borras.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 2,
         explanation: 'La huella digital es el rastro total, activo y pasivo, que generamos.',
         hint: 'Sección 5.2.1.'
       },
@@ -466,12 +466,12 @@ export const CHALLENGES: Challenge[] = [
         type: 'scenario',
         question: 'El candidato borró su cuenta de un foro polémico. ¿Ha desaparecido su rastro?',
         options: [
-          'Sí, al borrar la cuenta se borra todo.',
           'No, existen archivos históricos, capturas y bases de datos de terceros.',
+          'Sí, al borrar la cuenta se borra todo.',
           'Solo si el foro era privado.',
           'Depende de si usó un alias.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 0,
         explanation: 'Internet tiene memoria. Una vez publicado, pierdes el control sobre las copias.',
         hint: 'Advertencia en la sección 5.2.1.'
       },
@@ -481,11 +481,11 @@ export const CHALLENGES: Challenge[] = [
         question: 'Analiza este perfil. ¿Qué dato NO debería ser público?',
         options: [
           'Nombre y apellidos.',
-          'Experiencia laboral.',
           'Número de teléfono personal y dirección de casa.',
+          'Experiencia laboral.',
           'Habilidades.'
         ],
-        correctAnswer: 2,
+        correctAnswer: 1,
         explanation: 'Publicar datos privados facilita el acoso y el robo de identidad.',
         hint: 'Sección 5.2.1.'
       },
@@ -527,11 +527,11 @@ export const CHALLENGES: Challenge[] = [
         question: 'Un empleado publica una foto de su mesa con el plan del próximo producto al fondo. ¿Qué es esto?',
         options: [
           'Marketing viral.',
-          'Oversharing involuntario.',
           'Libertad de expresión.',
-          'Un error de la cámara.'
+          'Un error de la cámara.',
+          'Oversharing involuntario.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 3,
         explanation: 'La privacidad no es solo lo que dices, sino lo que muestras involuntariamente.',
         hint: 'Busca "Oversharing" en 5.2.3.'
       },
@@ -540,12 +540,12 @@ export const CHALLENGES: Challenge[] = [
         type: 'multiple-choice',
         question: '¿Qué significa el "Principio de Mínimo Privilegio"?',
         options: [
-          'Que las apps deben ser gratis.',
           'Que una app solo debe tener los permisos estrictamente necesarios.',
+          'Que las apps deben ser gratis.',
           'Que los usuarios VIP tienen más derechos.',
           'Que debes dar todos los permisos para que funcione bien.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 0,
         explanation: 'Limitar permisos reduce la superficie de ataque y protege tu privacidad.',
         hint: 'Sección 5.2.3.'
       },
@@ -578,11 +578,11 @@ export const CHALLENGES: Challenge[] = [
         question: '¿Cuál de estos permisos es SOSPECHOSO para una app de "Calculadora"?',
         options: [
           'Acceso al teclado.',
-          'Acceso a la memoria interna.',
           'Acceso a la lista de contactos y micrófono.',
+          'Acceso a la memoria interna.',
           'Uso de la CPU.'
         ],
-        correctAnswer: 2,
+        correctAnswer: 1,
         explanation: 'Una calculadora no necesita saber con quién hablas ni escucharte.',
         hint: 'Aplica el mínimo privilegio.'
       }
@@ -601,11 +601,11 @@ export const CHALLENGES: Challenge[] = [
         question: '¿Qué significan las siglas RGPD?',
         options: [
           'Red Global de Protección Digital.',
-          'Reglamento General de Protección de Datos.',
           'Registro General de Personas Digitales.',
-          'Regla de Gestión de Privacidad Directa.'
+          'Regla de Gestión de Privacidad Directa.',
+          'Reglamento General de Protección de Datos.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 3,
         explanation: 'Es la norma europea que regula la privacidad y protección de datos.',
         hint: 'Sección 5.5.1.'
       },
@@ -628,12 +628,12 @@ export const CHALLENGES: Challenge[] = [
         type: 'scenario',
         question: 'Tu jefe te envía un WhatsApp de trabajo un domingo a las 22:00. ¿Qué derecho te ampara?',
         options: [
-          'Derecho al olvido.',
           'Derecho a la desconexión digital.',
+          'Derecho al olvido.',
           'Derecho de oposición.',
           'Derecho a la intimidad.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 0,
         explanation: 'La desconexión digital garantiza el descanso fuera del horario laboral/lectivo.',
         hint: 'Sección 5.5.3.'
       },
@@ -643,11 +643,11 @@ export const CHALLENGES: Challenge[] = [
         question: '¿Qué es el "Derecho al Olvido"?',
         options: [
           'Derecho a olvidar tus contraseñas.',
-          'Derecho a que se eliminen enlaces a información obsoleta en buscadores.',
           'Derecho a no estudiar para los exámenes.',
+          'Derecho a que se eliminen enlaces a información obsoleta en buscadores.',
           'Derecho a borrar el historial del navegador.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 2,
         explanation: 'Permite que información antigua o irrelevante no aparezca eternamente en los buscadores.',
         hint: 'Sección 5.5.2.'
       },
@@ -680,11 +680,11 @@ export const CHALLENGES: Challenge[] = [
         question: '¿Cuál de estas URLs es SEGURA para introducir una tarjeta de crédito?',
         options: [
           'http://mi-banco-seguro.com/login',
-          'https://banco-nexus.es/pagos',
           'ftp://transferencias.net/pago',
+          'https://banco-nexus.es/pagos',
           'www.pagos-rapidos.com/check'
         ],
-        correctAnswer: 1,
+        correctAnswer: 2,
         explanation: 'HTTPS indica que la comunicación está cifrada mediante certificados SSL/TLS.',
         hint: 'Busca el candado en 5.6.1.'
       },
@@ -694,11 +694,11 @@ export const CHALLENGES: Challenge[] = [
         question: '¿Qué riesgo corres al usar un Wi-Fi público abierto?',
         options: [
           'Que el móvil se infecte con un virus físico.',
-          'Ataques "Man-in-the-Middle" donde interceptan tus datos.',
           'Que la batería se agote en segundos.',
-          'No hay riesgo si usas modo incógnito.'
+          'No hay riesgo si usas modo incógnito.',
+          'Ataques "Man-in-the-Middle" donde interceptan tus datos.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 3,
         explanation: 'En redes abiertas, cualquiera con las herramientas adecuadas puede "escuchar" tu tráfico.',
         hint: 'Sección 5.6.2.'
       },
@@ -707,12 +707,12 @@ export const CHALLENGES: Challenge[] = [
         type: 'multiple-choice',
         question: '¿Cómo ayuda una VPN?',
         options: [
-          'Aumenta la velocidad de descarga.',
           'Crea un túnel cifrado que protege tus datos e IP.',
+          'Aumenta la velocidad de descarga.',
           'Limpia los virus del ordenador.',
           'Permite usar Internet sin pagar.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 0,
         explanation: 'La VPN oculta tu actividad y protege tus datos incluso en redes inseguras.',
         hint: 'Sección 5.6.3.'
       },
@@ -736,11 +736,11 @@ export const CHALLENGES: Challenge[] = [
         question: '¿Para qué sirven las "Cookies de seguimiento"?',
         options: [
           'Para recordar tu contraseña.',
-          'Para que el sitio cargue más rápido.',
           'Para rastrear tu navegación y mostrarte publicidad personalizada.',
+          'Para que el sitio cargue más rápido.',
           'Para protegerte de ataques.'
         ],
-        correctAnswer: 2,
+        correctAnswer: 1,
         explanation: 'Son herramientas de marketing que pueden comprometer tu privacidad al crear perfiles de usuario.',
         hint: 'Sección 5.6.4.'
       }
@@ -759,11 +759,11 @@ export const CHALLENGES: Challenge[] = [
         question: 'En el cifrado ASIMÉTRICO, ¿qué clave se usa para CIFRAR un mensaje destinado a ti?',
         options: [
           'Tu clave privada.',
-          'Tu clave pública.',
           'La clave privada del emisor.',
-          'Una clave compartida.'
+          'Una clave compartida.',
+          'Tu clave pública.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 3,
         explanation: 'Cualquiera puede cifrar con tu clave pública, pero solo tú puedes descifrar con tu privada.',
         hint: 'Sección 5.7.2.'
       },
@@ -772,12 +772,12 @@ export const CHALLENGES: Challenge[] = [
         type: 'multiple-choice',
         question: '¿Cuál es la principal característica de una función HASH?',
         options: [
-          'Es reversible.',
           'Es irreversible (unidireccional).',
+          'Es reversible.',
           'Solo funciona con números.',
           'Requiere una clave secreta.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 0,
         explanation: 'Un hash genera una firma única pero no permite recuperar el dato original.',
         hint: 'Integridad en 5.7.3.'
       },
@@ -801,11 +801,11 @@ export const CHALLENGES: Challenge[] = [
         question: '¿Por qué las empresas guardan el HASH de tu contraseña y no la contraseña real?',
         options: [
           'Para ahorrar espacio.',
-          'Para que si roban la base de datos, no obtengan las contraseñas reales.',
           'Porque es más rápido de procesar.',
+          'Para que si roban la base de datos, no obtengan las contraseñas reales.',
           'Por error de programación.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 2,
         explanation: 'Al guardar el hash, la empresa puede verificar tu clave sin conocerla realmente.',
         hint: 'Uso de hashes en 5.7.3.'
       },
@@ -837,12 +837,12 @@ export const CHALLENGES: Challenge[] = [
         type: 'multiple-choice',
         question: '¿Qué es el "Vishing"?',
         options: [
-          'Phishing visual.',
           'Phishing a través de llamadas de voz.',
+          'Phishing visual.',
           'Un virus que borra vídeos.',
           'Pescar en Internet.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 0,
         explanation: 'El atacante finge ser alguien de confianza por teléfono para obtener datos.',
         hint: 'Sección 5.8.'
       },
@@ -852,11 +852,11 @@ export const CHALLENGES: Challenge[] = [
         question: 'Encuentras un USB en el parking de la empresa con la etiqueta "Salarios 2026". ¿Qué haces?',
         options: [
           'Conectarlo para ver cuánto gana mi jefe.',
-          'Entregarlo al departamento de seguridad sin conectarlo.',
           'Formatearlo y quedármelo.',
-          'Dárselo a un compañero.'
+          'Dárselo a un compañero.',
+          'Entregarlo al departamento de seguridad sin conectarlo.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 3,
         explanation: 'Es un ataque de "Baiting". El USB probablemente contiene malware.',
         hint: 'Busca "Baiting" en 5.8.'
       },
@@ -866,11 +866,11 @@ export const CHALLENGES: Challenge[] = [
         question: '¿Qué técnica consiste en mirar lo que alguien escribe en su pantalla o teclado?',
         options: [
           'Screening.',
-          'Shoulder Surfing.',
           'Spying.',
+          'Shoulder Surfing.',
           'Back-watching.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 2,
         explanation: 'Es una forma física de ingeniería social muy común en cajeros y transporte público.',
         hint: 'Sección 5.8.'
       },
@@ -893,12 +893,12 @@ export const CHALLENGES: Challenge[] = [
         type: 'multiple-choice',
         question: '¿Qué es el "Quid pro quo" en ingeniería social?',
         options: [
-          'Un virus latino.',
           'Ofrecer un beneficio o servicio a cambio de información.',
+          'Un virus latino.',
           'Atacar dos veces seguidas.',
           'Un tipo de cifrado.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 0,
         explanation: 'El atacante se hace pasar por soporte técnico, por ejemplo, para "ayudarte" a cambio de tu clave.',
         hint: 'Sección 5.8.'
       }
@@ -917,11 +917,11 @@ export const CHALLENGES: Challenge[] = [
         question: '¿Qué diferencia al Ransomware de otros malware?',
         options: [
           'Que es más rápido.',
-          'Que cifra tus archivos y pide un rescate.',
           'Que solo afecta a móviles.',
-          'Que se borra solo.'
+          'Que se borra solo.',
+          'Que cifra tus archivos y pide un rescate.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 3,
         explanation: 'El ransomware busca el beneficio económico directo mediante el secuestro de datos.',
         hint: 'Sección 5.4.'
       },
@@ -945,11 +945,11 @@ export const CHALLENGES: Challenge[] = [
         question: '¿Qué es un "Troyano"?',
         options: [
           'Un virus que se multiplica solo.',
-          'Malware que se disfraza de software legítimo para engañar al usuario.',
           'Un ataque de denegación de servicio.',
+          'Malware que se disfraza de software legítimo para engañar al usuario.',
           'Un hardware infectado.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 2,
         explanation: 'Como el caballo de madera, parece un regalo pero contiene una amenaza en su interior.',
         hint: 'Sección 5.4.'
       },
@@ -972,12 +972,12 @@ export const CHALLENGES: Challenge[] = [
         type: 'multiple-choice',
         question: '¿Qué es el "Grooming"?',
         options: [
-          'Un tipo de virus informático.',
           'Manipulación de un adulto hacia un menor con fines de abuso.',
+          'Un tipo de virus informático.',
           'Una técnica de marketing digital.',
           'Limpiar el hardware del ordenador.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 0,
         explanation: 'Es un delito grave que implica ganarse la confianza de un menor para explotarlo.',
         hint: 'Sección 5.4.'
       }
@@ -996,11 +996,11 @@ export const CHALLENGES: Challenge[] = [
         question: '¿Qué es la "Luz Azul" y cómo afecta?',
         options: [
           'Es luz relajante.',
-          'Luz de pantallas que inhibe la melatonina y altera el sueño.',
           'Señal de Wi-Fi.',
-          'Solo afecta a la vista cansada.'
+          'Solo afecta a la vista cansada.',
+          'Luz de pantallas que inhibe la melatonina y altera el sueño.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 3,
         explanation: 'El uso de pantallas antes de dormir dificulta el descanso profundo.',
         hint: 'Sección 5.3.1.'
       },
@@ -1076,10 +1076,10 @@ export const CHALLENGES: Challenge[] = [
         options: [
           'Transferencia bancaria directa.',
           'Tarjeta de crédito principal.',
-          'Tarjeta virtual de un solo uso o PayPal.',
-          'Envío de efectivo por correo.'
+          'Envío de efectivo por correo.',
+          'Tarjeta virtual de un solo uso o PayPal.'
         ],
-        correctAnswer: 2,
+        correctAnswer: 3,
         explanation: 'Las tarjetas virtuales limitan el riesgo de robo de fondos si la web es fraudulenta.',
         hint: 'Sección 5.9.'
       },
@@ -1088,12 +1088,12 @@ export const CHALLENGES: Challenge[] = [
         type: 'spot-the-error',
         question: 'Ves una oferta: "iPhone 15 por 99€". La URL es "www.apple-ofertas-locas.biz". ¿Qué haces?',
         options: [
-          'Comprarlo rápido antes de que se agote.',
           'Es una estafa obvia: precio irreal y dominio sospechoso.',
+          'Comprarlo rápido antes de que se agote.',
           'Introducir mis datos pero no pagar.',
           'Compartirlo con amigos.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 0,
         explanation: 'Los precios demasiado bajos y los dominios extraños son señales claras de estafa.',
         hint: 'Sección 5.9.'
       },
@@ -1154,11 +1154,11 @@ export const CHALLENGES: Challenge[] = [
         question: '¿Cuál es el mayor riesgo de una cámara de seguridad con la contraseña "admin123"?',
         options: [
           'Que se apague sola.',
-          'Que cualquier persona en el mundo pueda ver el vídeo en directo.',
           'Que gaste mucha luz.',
-          'Que la imagen se vea borrosa.'
+          'Que la imagen se vea borrosa.',
+          'Que cualquier persona en el mundo pueda ver el vídeo en directo.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 3,
         explanation: 'Las contraseñas por defecto son la causa principal de hackeos masivos en dispositivos IoT.',
         hint: 'Sección 5.10.'
       },
@@ -1167,12 +1167,12 @@ export const CHALLENGES: Challenge[] = [
         type: 'scenario',
         question: 'Instalas una bombilla inteligente que te pide acceso a tus contactos y ubicación. ¿Qué haces?',
         options: [
-          'Dárselo, será para alguna función chula.',
           'Denegar los permisos: una bombilla no necesita tus contactos.',
+          'Dárselo, será para alguna función chula.',
           'Desinstalar la app y devolver la bombilla.',
           'Solo darle la ubicación.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 0,
         explanation: 'Aplica el principio de mínimo privilegio: los dispositivos no deben pedir datos que no necesitan.',
         hint: 'Mínimo privilegio en 5.2.3.'
       },
@@ -1210,11 +1210,11 @@ export const CHALLENGES: Challenge[] = [
         question: '¿Por qué es peligroso no actualizar el software de una Smart TV?',
         options: [
           'Porque los colores se ven peor.',
-          'Porque puede contener vulnerabilidades que permitan espiar a través del micrófono.',
           'Porque Netflix deja de funcionar.',
+          'Porque puede contener vulnerabilidades que permitan espiar a través del micrófono.',
           'No es peligroso, las teles no se hackean.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 2,
         explanation: 'Cualquier dispositivo con conexión a Internet y sensores es un objetivo potencial.',
         hint: 'Actualizaciones en 5.1.1.'
       }
@@ -1233,11 +1233,11 @@ export const CHALLENGES: Challenge[] = [
         question: '¿Qué es un "Deepfake"?',
         options: [
           'Un vídeo de muy alta resolución.',
-          'Contenido multimedia falso generado mediante IA que imita a personas reales.',
           'Un juego de realidad virtual.',
-          'Un tipo de virus que borra fotos.'
+          'Un tipo de virus que borra fotos.',
+          'Contenido multimedia falso generado mediante IA que imita a personas reales.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 3,
         explanation: 'Los deepfakes usan redes neuronales para suplantar rostros y voces con gran realismo.',
         hint: 'Sección 5.11.'
       },
@@ -1260,12 +1260,12 @@ export const CHALLENGES: Challenge[] = [
         type: 'multiple-choice',
         question: '¿Qué es una "Alucinación" en una IA como ChatGPT?',
         options: [
-          'Cuando la IA se apaga sola.',
           'Cuando la IA inventa datos falsos con total seguridad.',
+          'Cuando la IA se apaga sola.',
           'Cuando la IA responde muy rápido.',
           'Cuando la IA usa colores brillantes.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 0,
         explanation: 'Los modelos de lenguaje pueden generar información plausible pero totalmente falsa.',
         hint: 'Sección 5.11.'
       },
@@ -1289,11 +1289,11 @@ export const CHALLENGES: Challenge[] = [
         question: '¿Qué es el "Sesgo Algorítmico"?',
         options: [
           'Un error de conexión.',
+          'La velocidad de procesamiento.',
           'Prejuicios en los resultados de una IA debido a datos de entrenamiento no representativos.',
-          'Cuando la IA prefiere el color azul.',
-          'La velocidad de procesamiento.'
+          'Cuando la IA prefiere el color azul.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 2,
         explanation: 'Si los datos de entrenamiento son sesgados, la IA repetirá y ampliará esos prejuicios.',
         hint: 'Sección 5.11.'
       }
@@ -1312,11 +1312,11 @@ export const CHALLENGES: Challenge[] = [
         question: '¿En qué consiste la regla de backup 3-2-1?',
         options: [
           '3 archivos, 2 carpetas, 1 disco.',
-          '3 copias, en 2 soportes distintos, con 1 copia fuera de casa/oficina.',
           'Hacer copia cada 3 días, durante 2 horas, a la 1 de la mañana.',
-          '3 personas revisando 2 veces 1 archivo.'
+          '3 personas revisando 2 veces 1 archivo.',
+          '3 copias, en 2 soportes distintos, con 1 copia fuera de casa/oficina.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 3,
         explanation: 'Es el estándar de oro para asegurar que los datos nunca se pierdan por completo.',
         hint: 'Estrategia de resiliencia.'
       },
@@ -1325,12 +1325,12 @@ export const CHALLENGES: Challenge[] = [
         type: 'scenario',
         question: 'Tu ordenador se rompe y no tienes copia de seguridad. ¿Qué probabilidad hay de recuperar los datos?',
         options: [
-          '100%, los informáticos lo arreglan todo.',
           'Muy baja y muy costosa en laboratorios especializados.',
+          '100%, los informáticos lo arreglan todo.',
           'Basta con reiniciarlo.',
           'Los datos se recuperan solos de la nube automáticamente.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 0,
         explanation: 'Sin copia previa, la recuperación física de un disco dañado es extremadamente difícil.',
         hint: 'Prevención vs Corrección.'
       },
@@ -1368,11 +1368,11 @@ export const CHALLENGES: Challenge[] = [
         question: '¿Cada cuánto tiempo se debe realizar una copia de seguridad?',
         options: [
           'Una vez al año.',
-          'Depende de la frecuencia con la que cambien tus datos importantes.',
           'Solo cuando el ordenador avise.',
+          'Depende de la frecuencia con la que cambien tus datos importantes.',
           'Nunca, si usas Windows 11.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 2,
         explanation: 'La frecuencia debe ajustarse al valor y volatilidad de tu información.',
         hint: 'Gestión de riesgos.'
       }
@@ -1391,11 +1391,11 @@ export const CHALLENGES: Challenge[] = [
         question: '¿Qué es una "Cámara de Eco" en redes sociales?',
         options: [
           'Un fallo en el sonido de los vídeos.',
-          'Un entorno donde solo ves opiniones que refuerzan tus propias creencias.',
           'Un grupo de chat muy grande.',
-          'Cuando el algoritmo repite tus posts.'
+          'Cuando el algoritmo repite tus posts.',
+          'Un entorno donde solo ves opiniones que refuerzan tus propias creencias.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 3,
         explanation: 'Los algoritmos tienden a mostrarnos lo que nos gusta, aislándonos de ideas diferentes.',
         hint: 'Sección 5.11.'
       },
@@ -1404,12 +1404,12 @@ export const CHALLENGES: Challenge[] = [
         type: 'scenario',
         question: 'Solo ves noticias negativas sobre un tema concreto. ¿Qué deberías hacer?',
         options: [
-          'Creerme todo, si sale en mi muro será verdad.',
           'Buscar activamente fuentes con puntos de vista opuestos para contrastar.',
+          'Creerme todo, si sale en mi muro será verdad.',
           'Dejar de leer noticias.',
           'Bloquear a quien piense distinto.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 0,
         explanation: 'La alfabetización mediática requiere buscar la pluralidad de fuentes.',
         hint: 'Romper la burbuja.'
       },
@@ -1447,11 +1447,11 @@ export const CHALLENGES: Challenge[] = [
         question: '¿Qué es el "Clickbait"?',
         options: [
           'Un tipo de virus de ratón.',
+          'Configurar el doble clic.',
           'Titulares sensacionalistas diseñados solo para que hagas clic.',
-          'Un juego de clics rápidos.',
-          'Configurar el doble clic.'
+          'Un juego de clics rápidos.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 2,
         explanation: 'El clickbait usa la curiosidad para llevarte a contenido que a menudo es de baja calidad.',
         hint: 'Tácticas de atención.'
       }
@@ -1470,11 +1470,11 @@ export const CHALLENGES: Challenge[] = [
         question: '¿Qué significa el símbolo © (Copyright)?',
         options: [
           'Que puedes copiarlo libremente.',
-          'Todos los derechos reservados: necesitas permiso del autor para usarlo.',
           'Que es contenido creado por ordenador.',
-          'Que es una copia de seguridad.'
+          'Que es una copia de seguridad.',
+          'Todos los derechos reservados: necesitas permiso del autor para usarlo.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 3,
         explanation: 'Es la protección más restrictiva de la propiedad intelectual.',
         hint: 'Sección 5.12.'
       },
@@ -1483,12 +1483,12 @@ export const CHALLENGES: Challenge[] = [
         type: 'multiple-choice',
         question: '¿Qué permite una licencia Creative Commons "BY" (Atribución)?',
         options: [
-          'Usar la obra sin decir de quién es.',
           'Usar la obra siempre que menciones al autor original.',
+          'Usar la obra sin decir de quién es.',
           'Solo se puede usar en libros.',
           'No permite ningún uso.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 0,
         explanation: 'La atribución es el requisito básico de casi todas las licencias CC.',
         hint: 'Sección 5.12.'
       },
@@ -1526,11 +1526,11 @@ export const CHALLENGES: Challenge[] = [
         question: '¿Qué es el "Plagio"?',
         options: [
           'Un tipo de virus.',
-          'Copiar una obra o idea ajena y presentarla como propia.',
           'Comprar software legal.',
+          'Copiar una obra o idea ajena y presentarla como propia.',
           'Hacer una crítica de un libro.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 2,
         explanation: 'El plagio es una violación de los derechos morales del autor y una falta de integridad.',
         hint: 'Sección 5.12.'
       }
@@ -1549,11 +1549,11 @@ export const CHALLENGES: Challenge[] = [
         question: 'Recibes un correo de "seguridad@n3xus.com" (en lugar de nexus.com). ¿Qué es esto?',
         options: [
           'Un error tipográfico del becario.',
-          'Typosquatting: un dominio falso que se parece al real para engañarte.',
           'Una nueva división de la empresa.',
-          'Un correo cifrado.'
+          'Un correo cifrado.',
+          'Typosquatting: un dominio falso que se parece al real para engañarte.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 3,
         explanation: 'Los atacantes registran dominios similares para que no notes la diferencia a simple vista.',
         hint: 'Sección 5.4.'
       },
@@ -1562,12 +1562,12 @@ export const CHALLENGES: Challenge[] = [
         type: 'multiple-choice',
         question: '¿Qué debes hacer con un archivo adjunto ".exe" de un remitente desconocido?',
         options: [
+          'No abrirlo nunca: los ejecutables son la forma más común de transmitir malware.',
           'Abrirlo para ver qué es.',
           'Analizarlo con el antivirus y luego abrirlo.',
-          'No abrirlo nunca: los ejecutables son la forma más común de transmitir malware.',
           'Reenviarlo a soporte técnico.'
         ],
-        correctAnswer: 2,
+        correctAnswer: 0,
         explanation: 'Los archivos ejecutables pueden instalar malware en tu sistema en segundos.',
         hint: 'Amenazas en 5.4.'
       },
@@ -1591,11 +1591,11 @@ export const CHALLENGES: Challenge[] = [
         question: 'Un correo te pide que descargues una "Factura Pendiente" en un archivo .zip. ¿Qué haces?',
         options: [
           'Descargarlo, no quiero deber dinero.',
-          'Verificar el remitente y, si es dudoso, no descargar nada: los .zip suelen ocultar virus.',
           'Abrirlo solo en el móvil.',
+          'Verificar el remitente y, si es dudoso, no descargar nada: los .zip suelen ocultar virus.',
           'Borrar todos mis correos.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 2,
         explanation: 'Los archivos comprimidos son tácticas clásicas para saltarse los filtros de seguridad básicos.',
         hint: 'Sección 5.4.'
       },
@@ -1628,11 +1628,11 @@ export const CHALLENGES: Challenge[] = [
         question: '¿Qué es el "Sideloading"?',
         options: [
           'Cargar el móvil de lado.',
-          'Instalar aplicaciones desde fuera de las tiendas oficiales (Play Store/App Store).',
           'Pasar archivos por Bluetooth.',
-          'Usar el móvil mientras se carga.'
+          'Usar el móvil mientras se carga.',
+          'Instalar aplicaciones desde fuera de las tiendas oficiales (Play Store/App Store).'
         ],
-        correctAnswer: 1,
+        correctAnswer: 3,
         explanation: 'Instalar apps de fuentes desconocidas aumenta drásticamente el riesgo de malware.',
         hint: 'Seguridad en dispositivos.'
       },
@@ -1641,12 +1641,12 @@ export const CHALLENGES: Challenge[] = [
         type: 'scenario',
         question: 'Pierdes el móvil en el transporte público. ¿Qué es lo primero que haces?',
         options: [
-          'Llorar y comprar otro.',
           'Usar la herramienta de "Encontrar mi dispositivo" para bloquearlo y borrarlo remotamente.',
+          'Llorar y comprar otro.',
           'Esperar a que alguien me llame.',
           'Ir a la tienda de mi operador.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 0,
         explanation: 'La reacción rápida mediante herramientas de gestión remota protege tus datos.',
         hint: 'Sección 5.1.2.'
       },
@@ -1684,11 +1684,11 @@ export const CHALLENGES: Challenge[] = [
         question: '¿Qué riesgo tiene el "Jailbreak" o "Root" en un móvil?',
         options: [
           'Que la pantalla se rompa.',
-          'Que se eliminan las protecciones de seguridad del fabricante, facilitando ataques.',
           'Que el móvil va más lento.',
+          'Que se eliminan las protecciones de seguridad del fabricante, facilitando ataques.',
           'Que no puedes hacer llamadas.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 2,
         explanation: 'Al saltarse las restricciones, también se eliminan los muros que detienen al malware.',
         hint: 'Seguridad del sistema.'
       }
@@ -1707,11 +1707,11 @@ export const CHALLENGES: Challenge[] = [
         question: '¿Qué es el "Perfilado de Usuario"?',
         options: [
           'Elegir una foto de perfil.',
-          'Crear un modelo detallado de tus gustos y hábitos mediante el análisis de tus datos masivos.',
           'Limpiar tu lista de amigos.',
-          'Configurar el nombre de usuario.'
+          'Configurar el nombre de usuario.',
+          'Crear un modelo detallado de tus gustos y hábitos mediante el análisis de tus datos masivos.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 3,
         explanation: 'Las empresas usan Big Data para predecir tu comportamiento y venderte productos o ideas.',
         hint: 'Identidad digital.'
       },
@@ -1720,12 +1720,12 @@ export const CHALLENGES: Challenge[] = [
         type: 'scenario',
         question: 'Una app gratuita de linterna te pide acceso a tu historial de compras. ¿Cómo se financia?',
         options: [
-          'Por amor al arte.',
           'Vendiendo tus datos personales a empresas de publicidad.',
+          'Por amor al arte.',
           'Con donaciones anónimas.',
           'No se financia, es gratis.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 0,
         explanation: '"Si no pagas por el producto, el producto eres tú".',
         hint: 'Monetización de datos.'
       },
@@ -1763,11 +1763,11 @@ export const CHALLENGES: Challenge[] = [
         question: '¿Qué es el "Capitalismo de Vigilancia"?',
         options: [
           'Poner cámaras en las tiendas.',
-          'Modelo de negocio basado en la mercantilización de datos personales capturados mediante vigilancia online.',
           'Vender sistemas de seguridad.',
+          'Modelo de negocio basado en la mercantilización de datos personales capturados mediante vigilancia online.',
           'Un tipo de criptomoneda.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 2,
         explanation: 'Describe cómo nuestra experiencia privada se convierte en materia prima para prácticas comerciales.',
         hint: 'Ética digital.'
       }
@@ -1786,11 +1786,11 @@ export const CHALLENGES: Challenge[] = [
         question: '¿Qué es la "Netiqueta"?',
         options: [
           'Una marca de ropa digital.',
-          'Conjunto de normas de comportamiento y cortesía en Internet.',
           'La etiqueta de precio de un dominio.',
-          'Un tipo de virus de red.'
+          'Un tipo de virus de red.',
+          'Conjunto de normas de comportamiento y cortesía en Internet.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 3,
         explanation: 'Mantener el respeto y la educación online es fundamental para la convivencia digital.',
         hint: 'Comportamiento en la red.'
       },
@@ -1799,12 +1799,12 @@ export const CHALLENGES: Challenge[] = [
         type: 'scenario',
         question: 'Ves que alguien está sufriendo acoso en un grupo de clase. ¿Qué haces?',
         options: [
+          'Apoyar a la víctima y denunciar el comportamiento a un adulto o a la plataforma.',
           'Reírme también para no ser el raro.',
           'No decir nada, no es mi problema.',
-          'Apoyar a la víctima y denunciar el comportamiento a un adulto o a la plataforma.',
           'Salir del grupo sin decir nada.'
         ],
-        correctAnswer: 2,
+        correctAnswer: 0,
         explanation: 'La responsabilidad digital implica no ser un espectador pasivo ante las injusticias.',
         hint: 'Ética y compromiso.'
       },
@@ -1842,11 +1842,11 @@ export const CHALLENGES: Challenge[] = [
         question: '¿Cuál es el objetivo final de la Ciberseguridad?',
         options: [
           'Que nadie pueda usar Internet.',
-          'Proteger a las personas, sus datos y sus derechos en el mundo digital.',
           'Ganar mucho dinero hackeando.',
+          'Proteger a las personas, sus datos y sus derechos en el mundo digital.',
           'Que los ordenadores no se rompan.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 2,
         explanation: 'La tecnología debe estar al servicio de las personas, garantizando su libertad y seguridad.',
         hint: 'Misión final.'
       }
@@ -1865,11 +1865,11 @@ export const CHALLENGES: Challenge[] = [
         question: '¿Qué es el "Hacktivismo"?',
         options: [
           'Hackear bancos para hacerse rico.',
-          'Uso de técnicas de hacking para promover una causa política o social.',
           'Un tipo de videojuego.',
-          'Reparar ordenadores antiguos.'
+          'Reparar ordenadores antiguos.',
+          'Uso de técnicas de hacking para promover una causa política o social.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 3,
         explanation: 'Es una forma de protesta digital que busca visibilizar problemas sociales.',
         hint: 'Sección 5.13.'
       },
@@ -1878,12 +1878,12 @@ export const CHALLENGES: Challenge[] = [
         type: 'scenario',
         question: 'Quieres lanzar una campaña contra el plástico. ¿Cuál es la mejor estrategia digital?',
         options: [
-          'Insultar a las empresas en sus perfiles.',
           'Crear un hashtag positivo, compartir datos verificados y usar peticiones oficiales.',
+          'Insultar a las empresas en sus perfiles.',
           'Hackear la web de un supermercado.',
           'Enviar spam a todos mis contactos.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 0,
         explanation: 'El ciberactivismo efectivo se basa en la información, la movilización y el respeto.',
         hint: 'Participación responsable.'
       },
@@ -1893,11 +1893,11 @@ export const CHALLENGES: Challenge[] = [
         question: '¿Qué riesgo tiene el "Slicktivismo" (activismo de sofá)?',
         options: [
           'Que te canses de estar sentado.',
-          'Que el apoyo se quede en un simple "like" sin generar cambios reales.',
           'Que se rompa el ratón.',
-          'Que te bloqueen la cuenta.'
+          'Que te bloqueen la cuenta.',
+          'Que el apoyo se quede en un simple "like" sin generar cambios reales.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 3,
         explanation: 'Dar un "like" da una falsa sensación de ayuda sin compromiso real.',
         hint: 'Impacto real.'
       },
@@ -1921,11 +1921,11 @@ export const CHALLENGES: Challenge[] = [
         question: '¿Qué es el "Doxing"?',
         options: [
           'Un tipo de perro robot.',
-          'Publicar información privada de alguien sin su permiso para acosarlo.',
           'Un formato de archivo de texto.',
+          'Publicar información privada de alguien sin su permiso para acosarlo.',
           'Actualizar el sistema operativo.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 2,
         explanation: 'Es una práctica peligrosa e ilegal que vulnera gravemente la privacidad.',
         hint: 'Riesgos en la red.'
       }
@@ -1944,11 +1944,11 @@ export const CHALLENGES: Challenge[] = [
         question: '¿Qué garantiza la seguridad en una red Blockchain?',
         options: [
           'Un banco central.',
-          'La descentralización y el consenso entre miles de nodos.',
           'Una contraseña de 20 dígitos.',
-          'El gobierno de EE.UU.'
+          'El gobierno de EE.UU.',
+          'La descentralización y el consenso entre miles de nodos.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 3,
         explanation: 'Al no haber un punto central, es casi imposible de hackear o manipular.',
         hint: 'Sección 5.14.'
       },
@@ -1957,12 +1957,12 @@ export const CHALLENGES: Challenge[] = [
         type: 'scenario',
         question: 'Un "influencer" promete que si inviertes 100€ en su moneda, tendrás 10.000€ en un mes. ¿Qué es?',
         options: [
-          'Una oportunidad única.',
           'Una estafa piramidal o "Rug Pull".',
+          'Una oportunidad única.',
           'Magia financiera.',
           'Un error de cálculo.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 0,
         explanation: 'Las promesas de rentabilidad alta sin riesgo son siempre estafas.',
         hint: 'Sentido común financiero.'
       },
@@ -1972,11 +1972,11 @@ export const CHALLENGES: Challenge[] = [
         question: '¿Qué es un NFT?',
         options: [
           'Un tipo de virus.',
-          'Un activo digital único y no intercambiable (como una obra de arte digital).',
           'Una nueva red social.',
+          'Un activo digital único y no intercambiable (como una obra de arte digital).',
           'Un cable de red.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 2,
         explanation: 'Usa blockchain para certificar la propiedad de un archivo digital único.',
         hint: 'Criptoactivos.'
       },
@@ -2000,11 +2000,11 @@ export const CHALLENGES: Challenge[] = [
         question: '¿Qué es el "Phishing de Criptomonedas"?',
         options: [
           'Pescar Bitcoins en el mar.',
-          'Robar las "semillas" o claves privadas de tu billetera digital mediante engaños.',
           'Un tipo de minería.',
-          'Comprar barato.'
+          'Comprar barato.',
+          'Robar las "semillas" o claves privadas de tu billetera digital mediante engaños.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 3,
         explanation: 'Si alguien obtiene tu "frase semilla", tiene acceso total a tu dinero para siempre.',
         hint: 'Seguridad en billeteras.'
       }
@@ -2023,11 +2023,11 @@ export const CHALLENGES: Challenge[] = [
         question: '¿Qué hace realmente una VPN?',
         options: [
           'Aumenta la velocidad de internet.',
-          'Crea un túnel cifrado entre tu dispositivo e internet, ocultando tu IP real.',
           'Limpia los virus del ordenador.',
-          'Permite descargar juegos gratis.'
+          'Permite descargar juegos gratis.',
+          'Crea un túnel cifrado entre tu dispositivo e internet, ocultando tu IP real.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 3,
         explanation: 'Es vital para usar Wi-Fi públicas de forma segura.',
         hint: 'Sección 5.7.'
       },
@@ -2036,12 +2036,12 @@ export const CHALLENGES: Challenge[] = [
         type: 'scenario',
         question: 'Quieres navegar sin que Google guarde cada click. ¿Qué buscador usas?',
         options: [
-          'Google en modo incógnito.',
           'DuckDuckGo o Brave Search.',
+          'Google en modo incógnito.',
           'Bing.',
           'Yahoo.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 0,
         explanation: 'Estos buscadores no rastrean tu actividad ni crean perfiles de usuario.',
         hint: 'Privacidad activa.'
       },
@@ -2051,11 +2051,11 @@ export const CHALLENGES: Challenge[] = [
         question: '¿Qué es la red "Tor"?',
         options: [
           'Una red para descargar películas.',
-          'Una red de voluntarios que encamina el tráfico por tres capas de cifrado para el anonimato.',
           'El sistema operativo de los hackers.',
-          'Un tipo de cable submarino.'
+          'Un tipo de cable submarino.',
+          'Una red de voluntarios que encamina el tráfico por tres capas de cifrado para el anonimato.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 3,
         explanation: 'Permite el anonimato extremo, usado por periodistas y activistas en países con censura.',
         hint: 'Anonimato por capas.'
       },
@@ -2079,11 +2079,11 @@ export const CHALLENGES: Challenge[] = [
         question: '¿Qué son los "Metadatos" de una foto?',
         options: [
           'Los colores de la imagen.',
-          'Información oculta como la fecha, hora, modelo de cámara y ubicación GPS.',
           'El nombre del archivo.',
-          'La resolución en píxeles.'
+          'La resolución en píxeles.',
+          'Información oculta como la fecha, hora, modelo de cámara y ubicación GPS.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 3,
         explanation: 'Una simple foto puede revelar dónde vives si no borras los metadatos.',
         hint: 'Información invisible.'
       }
@@ -2102,11 +2102,11 @@ export const CHALLENGES: Challenge[] = [
         question: '¿Cuál es el mayor riesgo de trabajar en una cafetería?',
         options: [
           'Que el café esté frío.',
-          'El "Visual Hacking" (alguien mirando tu pantalla) y las redes Wi-Fi abiertas.',
           'Que no haya enchufes.',
-          'Que el ruido no te deje concentrar.'
+          'Que el ruido no te deje concentrar.',
+          'El "Visual Hacking" (alguien mirando tu pantalla) y las redes Wi-Fi abiertas.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 3,
         explanation: 'La seguridad física y de red son críticas fuera de la oficina.',
         hint: 'Entornos públicos.'
       },
@@ -2115,12 +2115,12 @@ export const CHALLENGES: Challenge[] = [
         type: 'scenario',
         question: 'Debes compartir un documento confidencial con un compañero. ¿Cómo lo haces?',
         options: [
+          'Usar una carpeta compartida con permisos específicos y contraseña.',
           'Enviarlo por correo normal.',
           'Subirlo a un enlace público de Drive.',
-          'Usar una carpeta compartida con permisos específicos y contraseña.',
           'Publicarlo en el grupo de WhatsApp.'
         ],
-        correctAnswer: 2,
+        correctAnswer: 0,
         explanation: 'El control de acceso (quién puede ver qué) es la base de la colaboración segura.',
         hint: 'Gestión de permisos.'
       },
@@ -2130,11 +2130,11 @@ export const CHALLENGES: Challenge[] = [
         question: '¿Qué es el "Shadow IT"?',
         options: [
           'Software pirata.',
-          'Uso de aplicaciones no autorizadas por la empresa para trabajar (ej: usar Telegram personal para datos de trabajo).',
           'Programar de noche.',
-          'Un virus que se oculta en las sombras.'
+          'Un virus que se oculta en las sombras.',
+          'Uso de aplicaciones no autorizadas por la empresa para trabajar (ej: usar Telegram personal para datos de trabajo).'
         ],
-        correctAnswer: 1,
+        correctAnswer: 3,
         explanation: 'Usar apps personales para trabajo crea brechas de seguridad incontrolables.',
         hint: 'Riesgos corporativos.'
       },
@@ -2158,11 +2158,11 @@ export const CHALLENGES: Challenge[] = [
         question: '¿Qué es el "Derecho a la Desconexión Digital"?',
         options: [
           'Que se rompa el router.',
-          'Derecho a no responder mensajes de trabajo fuera del horario laboral.',
           'Poder apagar el móvil en el cine.',
-          'No tener internet en vacaciones.'
+          'No tener internet en vacaciones.',
+          'Derecho a no responder mensajes de trabajo fuera del horario laboral.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 3,
         explanation: 'Es fundamental para la salud mental y el equilibrio vida-trabajo.',
         hint: 'Salud laboral.'
       }
@@ -2181,11 +2181,11 @@ export const CHALLENGES: Challenge[] = [
         question: '¿Qué es un "Log" o registro de sistema?',
         options: [
           'Un trozo de madera digital.',
-          'Un archivo que anota cada acción, error o acceso que ocurre en un sistema.',
           'Una contraseña antigua.',
+          'Un archivo que anota cada acción, error o acceso que ocurre en un sistema.',
           'Un tipo de virus.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 2,
         explanation: 'Los logs son la "caja negra" que permite saber qué pasó tras un incidente.',
         hint: 'Rastros del sistema.'
       },
@@ -2194,12 +2194,12 @@ export const CHALLENGES: Challenge[] = [
         type: 'scenario',
         question: 'Recibes una imagen de un sospechoso. ¿Cómo sabes dónde se hizo?',
         options: [
-          'Mirando el color del cielo.',
           'Analizando los datos EXIF (metadatos) de la imagen.',
+          'Mirando el color del cielo.',
           'Preguntando en redes sociales.',
           'No se puede saber.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 0,
         explanation: 'Los datos EXIF suelen guardar las coordenadas GPS exactas.',
         hint: 'Información oculta.'
       },
@@ -2209,11 +2209,11 @@ export const CHALLENGES: Challenge[] = [
         question: '¿Qué significa que un archivo ha sido "borrado" en un disco duro normal?',
         options: [
           'Que ha desaparecido para siempre.',
-          'Que el sistema marca ese espacio como "disponible", pero los datos siguen ahí hasta que se escriba encima.',
           'Que se ha enviado a la nube.',
-          'Que se ha cifrado.'
+          'Que se ha cifrado.',
+          'Que el sistema marca ese espacio como "disponible", pero los datos siguen ahí hasta que se escriba encima.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 3,
         explanation: 'Por eso se pueden recuperar archivos borrados si no se hace un "borrado seguro".',
         hint: 'Persistencia de datos.'
       },
@@ -2236,12 +2236,12 @@ export const CHALLENGES: Challenge[] = [
         type: 'multiple-choice',
         question: '¿Qué es la "Cadena de Custodia"?',
         options: [
-          'Una cadena de oro para el servidor.',
           'Registro que garantiza que la prueba digital no ha sido manipulada desde su recogida.',
+          'Una cadena de oro para el servidor.',
           'Un tipo de cifrado en cadena.',
           'La lista de sospechosos.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 0,
         explanation: 'Sin ella, las pruebas digitales no tienen valor legal.',
         hint: 'Validez legal.'
       }
@@ -2260,11 +2260,11 @@ export const CHALLENGES: Challenge[] = [
         question: '¿Qué es el "E-waste"?',
         options: [
           'Correo basura.',
-          'Residuos electrónicos (móviles, PCs, cables) que acaban en vertederos.',
           'Energía desperdiciada.',
-          'Un virus que borra archivos.'
+          'Un virus que borra archivos.',
+          'Residuos electrónicos (móviles, PCs, cables) que acaban en vertederos.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 3,
         explanation: 'Es la basura que más rápido crece en el mundo y es muy contaminante.',
         hint: 'Sección 5.15.'
       },
@@ -2287,12 +2287,12 @@ export const CHALLENGES: Challenge[] = [
         type: 'multiple-choice',
         question: '¿Por qué los Centros de Datos contaminan?',
         options: [
-          'Porque hacen mucho ruido.',
           'Por su enorme consumo eléctrico y la necesidad de agua para refrigerar los servidores.',
+          'Porque hacen mucho ruido.',
           'Porque usan papel.',
           'No contaminan, son digitales.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 0,
         explanation: 'Internet tiene una presencia física masiva que requiere recursos naturales.',
         hint: 'Infraestructura física.'
       },
@@ -2316,11 +2316,11 @@ export const CHALLENGES: Challenge[] = [
         question: '¿Qué es la "Obsolescencia Programada"?',
         options: [
           'Cuando un programa se vuelve viejo.',
-          'Diseñar productos para que fallen o queden obsoletos tras un tiempo, obligando a comprar nuevos.',
           'Un error de programación.',
+          'Diseñar productos para que fallen o queden obsoletos tras un tiempo, obligando a comprar nuevos.',
           'Actualizar el software.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 2,
         explanation: 'Es una práctica poco ética que genera toneladas de basura innecesaria.',
         hint: 'Consumo y diseño.'
       }
@@ -2339,11 +2339,11 @@ export const CHALLENGES: Challenge[] = [
         question: '¿Qué es la "Accesibilidad Web"?',
         options: [
           'Que internet sea barato.',
-          'Diseñar webs para que personas con cualquier discapacidad puedan usarlas.',
           'Tener buena cobertura Wi-Fi.',
-          'Que la web cargue rápido.'
+          'Que la web cargue rápido.',
+          'Diseñar webs para que personas con cualquier discapacidad puedan usarlas.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 3,
         explanation: 'Es un derecho fundamental para la inclusión en la sociedad digital.',
         hint: 'Sección 5.16.'
       },
@@ -2352,12 +2352,12 @@ export const CHALLENGES: Challenge[] = [
         type: 'scenario',
         question: '¿Cómo ayudas a una persona ciega a "leer" una imagen en tu web?',
         options: [
-          'Poniendo la imagen muy grande.',
           'Añadiendo un texto alternativo (Alt Text) descriptivo.',
+          'Poniendo la imagen muy grande.',
           'Poniendo un audio que diga "esto es una foto".',
           'No se puede.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 0,
         explanation: 'Los lectores de pantalla leen el texto alternativo para explicar la imagen.',
         hint: 'Diseño inclusivo.'
       },
@@ -2395,11 +2395,11 @@ export const CHALLENGES: Challenge[] = [
         question: '¿Qué es el "Diseño Universal"?',
         options: [
           'Diseñar para todo el universo.',
-          'Crear productos que sean utilizables por el mayor número de personas posible sin necesidad de adaptación.',
           'Un estilo de diseño moderno.',
+          'Crear productos que sean utilizables por el mayor número de personas posible sin necesidad de adaptación.',
           'Diseñar solo para expertos.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 2,
         explanation: 'Si algo es fácil de usar para alguien con dificultades, es más fácil para todos.',
         hint: 'Concepto de diseño.'
       }
@@ -2418,11 +2418,11 @@ export const CHALLENGES: Challenge[] = [
         question: '¿Qué es un "Dark Pattern" (Patrón Oscuro)?',
         options: [
           'Un modo oscuro para la vista.',
-          'Interfaces diseñadas para engañar a los usuarios y que hagan cosas que no quieren.',
           'Un virus que oscurece la pantalla.',
-          'Programar sin luz.'
+          'Programar sin luz.',
+          'Interfaces diseñadas para engañar a los usuarios y que hagan cosas que no quieren.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 3,
         explanation: 'Buscan el beneficio de la empresa a costa de la libertad del usuario.',
         hint: 'Sección 5.16.'
       },
@@ -2431,12 +2431,12 @@ export const CHALLENGES: Challenge[] = [
         type: 'scenario',
         question: 'Intentas darte de baja y el botón es gris pequeño, mientras que el de "quedarse" es verde gigante. ¿Qué es?',
         options: [
-          'Un error de diseño.',
           'Confirmshaming / Roach Motel (fácil entrar, difícil salir).',
+          'Un error de diseño.',
           'Una sugerencia amable.',
           'Optimización visual.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 0,
         explanation: 'Es una técnica para dificultar que canceles un servicio.',
         hint: 'Trampas de diseño.'
       },
@@ -2474,11 +2474,11 @@ export const CHALLENGES: Challenge[] = [
         question: '¿Qué es el "Bait and Switch"?',
         options: [
           'Pescar y cambiar el cebo.',
-          'Cuando el usuario busca una cosa pero el diseño le lleva a otra distinta e indeseada.',
           'Un tipo de interruptor.',
+          'Cuando el usuario busca una cosa pero el diseño le lleva a otra distinta e indeseada.',
           'Cambiar la contraseña.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 2,
         explanation: 'Es como una trampa donde crees que haces A pero acabas haciendo B.',
         hint: 'Engaño directo.'
       }
@@ -2496,12 +2496,12 @@ export const CHALLENGES: Challenge[] = [
         type: 'multiple-choice',
         question: '¿Qué es un "Qubit"?',
         options: [
-          'Un bit que puede ser 0 y 1 al mismo tiempo gracias a la física cuántica.',
           'Un bit muy rápido.',
           'Un virus del futuro.',
-          'Una moneda digital.'
+          'Una moneda digital.',
+          'Un qubit puede ser 0 y 1 al mismo tiempo gracias a la física cuántica.'
         ],
-        correctAnswer: 0,
+        correctAnswer: 3,
         explanation: 'Es la unidad básica de la computación cuántica, permitiendo cálculos masivos.',
         hint: 'Conceptos cuánticos.'
       },
@@ -2553,11 +2553,11 @@ export const CHALLENGES: Challenge[] = [
         question: '¿Qué es el "Internet de los Cuerpos" (IoB)?',
         options: [
           'Internet para cadáveres.',
-          'Dispositivos conectados implantados o dentro del cuerpo humano (marcapasos, chips).',
           'Una red social de fitness.',
+          'Dispositivos conectados implantados o dentro del cuerpo humano (marcapasos, chips).',
           'Ropa inteligente.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 2,
         explanation: 'Plantea retos éticos y de seguridad extremos sobre nuestra propia biología.',
         hint: 'Bio-tecnología.'
       }
@@ -2576,11 +2576,11 @@ export const CHALLENGES: Challenge[] = [
         question: '¿Qué es la "Brecha Digital"?',
         options: [
           'Un agujero en el cable de fibra.',
-          'Desigualdad en el acceso, uso o impacto de las tecnologías entre diferentes grupos sociales.',
           'Cuando se cae internet en todo el mundo.',
-          'Un tipo de firewall.'
+          'Un tipo de firewall.',
+          'Desigualdad en el acceso, uso o impacto de las tecnologías entre diferentes grupos sociales.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 3,
         explanation: 'No tener internet hoy significa estar excluido de la educación, el trabajo y la cultura.',
         hint: 'Sección 5.15.'
       },
@@ -2589,12 +2589,12 @@ export const CHALLENGES: Challenge[] = [
         type: 'scenario',
         question: '¿Cómo afecta la brecha digital a la educación?',
         options: [
-          'No afecta, todos tienen libros.',
           'Los alumnos sin internet o dispositivos tienen menos oportunidades de aprendizaje y recursos.',
+          'No afecta, todos tienen libros.',
           'Hace que los alumnos lean más.',
           'Solo afecta a los videojuegos.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 0,
         explanation: 'Se convierte en una brecha de conocimiento y oportunidades futuras.',
         hint: 'Impacto social.'
       },
@@ -2632,11 +2632,11 @@ export const CHALLENGES: Challenge[] = [
         question: '¿Cuál es el mayor reto de la humanidad en la era digital?',
         options: [
           'Que el Wi-Fi llegue a Marte.',
-          'Garantizar que la tecnología sea un derecho humano universal y no un privilegio.',
           'Hacer móviles más finos.',
-          'Que la IA haga los deberes por nosotros.'
+          'Que la IA haga los deberes por nosotros.',
+          'Garantizar que la tecnología sea un derecho humano universal y no un privilegio.'
         ],
-        correctAnswer: 1,
+        correctAnswer: 3,
         explanation: 'La tecnología debe ser una herramienta de igualdad, no de división.',
         hint: 'Reflexión final.'
       }
